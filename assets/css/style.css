@@ -1,0 +1,904 @@
+/* O CSS segue o Padrão Mobile First */
+
+/* Global CSS */
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    scroll-behavior: smooth;
+    color: #fff;
+    text-decoration: none;
+    line-height: 1.8rem;
+}
+
+:root{
+    --verde-padrao: #0a5f55;
+    --verde-claro:#00975c;
+    --verde-borda: #017F75;
+    --roxo: rgba(65, 21, 100, 1);
+    --branco: #fff;
+    --text-color: #212529;
+    --text-color-light: #585B5E;
+}
+
+main p, main h2, main h3, main h3, main strong{
+    color: var(--text-color);
+    margin: 0;
+}
+
+/* Classes Globais */
+.d-none{
+    display: none!important;
+}
+
+.d-flex{
+    display: flex;
+}
+
+.centralize{
+    justify-content: center;
+    align-items: center;
+}
+
+@media(max-width: 700px){
+    .flex-centralize{
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.flex-row{
+    flex-direction: row;
+}
+
+.flex-col{
+    flex-direction: column;
+}
+
+.direction-flex{
+    flex-direction: column;
+}
+
+@media(min-width:700px){
+    .direction-flex{
+        flex-direction: row;
+    }
+}
+
+.flex-wrap{
+    flex-wrap: wrap;
+}
+
+.p-1{padding: 10px;}
+.p-2{padding: 20px;}
+.p-3{padding: 30px;}
+
+.pl-1{padding: 0 10px}
+.pl-2{padding: 0 20px}
+.pl-3{padding: 0 30px}
+
+.mt-1{margin-top: 10px;}
+.mt-2{margin-top: 20px;}
+.mt-3{margin-top: 30px;}
+
+.mb-1{margin-bottom: 10px;}
+.mb-2{margin-bottom: 20px;}
+.mb-3{margin-bottom: 30px;}
+
+body{
+    margin: auto;
+}
+
+footer{
+    width: 100%;
+}
+
+@media(max-width:720px){
+    .container{
+        width: 100%;
+        padding: 15px;
+    }
+}
+
+@media(min-width:720px){
+    .container{
+        max-width: 800px;
+    }
+}
+
+@media(min-width:992px){
+    .container{
+        max-width: 900px
+    }
+}
+
+@media(min-width:1200px){
+    .container{
+        max-width: 1000px;
+    }
+}
+
+@media(min-width:1240px){
+    .container{
+        width: 1200px;
+        max-width: 1200px;
+    }
+}
+
+.container{
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.col{
+    width: 100%;
+}
+
+.col-50{
+    width: 50%;
+}
+
+.col-33-flex{
+    width: 100%;
+}
+
+.col-50-flex{
+    width: 100%;
+}
+
+@media(min-width:700px){
+    .col-50-flex{
+        width: 50%;
+    }
+    
+    .col-33-flex{
+        width: 33.33%;
+    }
+}
+
+/* end classes globais  */
+
+
+/* navbar */
+.navbar{
+    background-color: var(--verde-padrao);
+    padding: 20px 0;
+}
+
+.navbar__desk-list{
+    display: none;
+}
+
+.navbar__desk-list p{
+    cursor: pointer;
+}
+
+.navbar__desk-list .dropdown-menu-item::after{
+    display: inline-block;
+    margin-left: 0.255em;
+    vertical-align: 0.255em;
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+}
+
+.dropdown-menu{
+    width: 300px;
+    position: absolute;
+    background-color: white;
+    border-radius: 15px;
+    padding: 20px;
+    right: 35%;
+    top: 60px;
+}
+
+.navbar__mob-list{
+    align-items: center;
+    justify-content: right;
+    padding-right: 25px;
+}
+
+/* accordion button */
+#checkbox-menu {
+    position: absolute;
+    opacity: 0;
+}
+
+.navbar__mob-list label{
+    cursor: pointer;
+    position: relative;
+    display: block;
+    height: 22px;
+    width: 30px;
+}
+
+#checkbox-menu:checked+label span:nth-child(1) {
+    transform: rotate(-45deg);
+    top: 8px;
+}
+
+.navbar__mob-list label span:nth-child(1) {
+    top: 0;
+}
+
+#checkbox-menu:checked+label span:nth-child(3) {
+    transform: rotate(45deg);
+    top: 8px;
+}
+
+#checkbox-menu:checked+label span:nth-child(2) {
+    opacity: 0;
+}
+
+.navbar__mob-list label span:nth-child(2) {
+    top: 8px;
+}
+
+#checkbox-menu:checked+label span:nth-child(3) {
+    transform: rotate(45deg);
+    top: 8px;
+}
+
+.navbar__mob-list label span:nth-child(3) {
+    top: 16px;
+}
+
+.navbar__mob-list label span {
+    position: absolute;
+    display: block;
+    height: 5px;
+    width: 100%;
+    border-radius: 30px;
+    background-color: #fff;
+    transition: all 0.25s ease-in-out;
+}
+
+.checkbox-menu:checked+label span:nth-child(3) {
+    transform: rotate(45deg);
+    top: 8px;
+}
+/* end accordion button */
+
+.navbar__button{
+    background-color: var(--verde-claro);
+    border-radius: 5px;
+    height: 45px;
+    padding: 0 15px;
+    transition: all 0.2s ease-in-out;
+}
+
+.navbar__button{
+    padding: 0 15px;
+}
+
+.navbar__button p{
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--branco);
+}
+
+.navbar__button{
+    text-decoration: none;
+}
+
+.navbar__button:hover{
+    background-color: var(--roxo);
+}
+
+.navbar__button:hover p{
+    color: var(--branco)!important;
+}
+
+.nav__mob-accordeon ul li{
+    list-style: none;
+    color: var(--verde-claro);
+    font-weight: 700;
+    width: 100%;
+    padding: 10px 0;
+    background-color: var(--branco);
+    border: 5px solid var(--verde-padrao);
+    margin: 0;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.nav__mob-accordeon li:hover{
+    color: var(--branco);
+    background-color: var(--verde-claro);
+}
+
+.nav__mob-accordeon ul{
+    padding-left: 0px!important;
+    margin: 0px;
+}
+
+/* end navbar */
+
+/* header */
+.header__space{
+    background-color: var(--verde-claro);
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 50px 30px 60px 30px;
+}
+
+.header__left-text h1{
+    line-height: 2.5rem;
+}
+
+.header__left-text p, .header__left-text h1{
+    width: 100%;
+    text-align: center;
+}
+
+.header__left-text h1{
+    font-size: 38px;
+}
+
+.header__left-text p{
+    font-size: 22px;
+}
+
+.header__form-style{
+    background-color: var(--branco);
+    width: 90%;
+    padding: 10px 5px;
+}
+
+.header__form-style h2{
+    background-color: var(--verde-padrao);
+    width: 90%;
+    text-align: center;
+    border-radius: 5px;
+    padding: 15px;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.header__form-style form label{
+    color: var(--text-color);
+}
+
+.header__form-style form div{
+    display: flex;
+    flex-direction: column;
+}
+
+.header__form-style fieldset{
+    border: 0;
+}
+
+input[type='text']{
+    border: 1px solid #585b5e6e;
+    border-radius: 5px;
+    padding: 10px;
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+textarea:focus, input:focus, select:focus {
+    box-shadow: 5px 5px 10px #86B7FE;
+    border: 1px solid #86B7FE;
+    outline: 0;
+} 
+
+.header__form-style button{
+    background-color: var(--roxo);
+    border-radius: 10px;
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
+    border: 0;
+}
+
+.header__form-style button:hover{
+    background-color: #00C282;
+}
+
+/*  end header */
+
+/* vantagens */
+.unimed__vantagens h2{
+    color: var(--verde-padrao);
+    font-weight: 500;
+    font-size: 20px;
+    margin: 0;
+    padding: 15px 0 5px 0;
+}
+
+.unimed__vantagens{
+    align-items: flex-start;
+}
+
+.unimed__vantagens div{
+    align-items: flex-start;
+    justify-content: center;
+    height: 100%;
+}
+/* end vantagens */
+
+/* Planos */
+
+.unimed__planos h2{
+    font-weight: 700;
+    font-size: 28px;
+    padding: 20px 0;
+}
+
+.unimed__plan-img{
+    border: 10px solid var(--verde-borda);
+    border-radius: 100px;
+    width: 90%;
+}
+
+.unimed__planos ul{
+    padding: 10px 0 0 5px;
+    margin-bottom: 45px;
+}
+
+.unimed__planos ul li{
+    color: #212529;
+    list-style: none;
+}
+
+.unimed__planos-cta{
+    background-color: #00975c;
+    padding: 10px 20px;
+    border-radius: 5px;
+
+}
+
+.unimed__planos-cta:hover{
+    background-color: var(--roxo);
+    transition: all 0.25s ease-in-out;
+}
+
+.unimed__publi{
+    background-color: var(--roxo);
+    width: 100%;
+    margin: 20px 0;
+}
+
+.unimed__publi p{
+    color: var(--branco);
+    font-size: 26px;
+    font-weight: 300;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.unimed__publi h3{
+    color: var(--branco);
+    font-size: 30px;
+    font-weight: 300;
+    margin: 25px 0;
+    line-height: 2.5rem;
+    padding: 0 5px;
+    text-align: center;
+}
+
+.unimed__publi-button{
+    padding: 15px 50px;
+    background-color: var(--verde-claro);
+    border: 1px solid var(--branco);
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 10px 0 20px 0;
+    transition: all 0.35s ease-in-out;
+}
+
+.unimed__publi-button:hover{
+    transform: scale(1.2);
+    transition: all 0.25s ease-in-out;
+}
+
+@media(min-width:700px){
+    .ajust-order{
+        order: 2;
+    }
+    .ajust-order-2{
+        order: 1;
+    }
+}
+
+/* end Planos */
+
+/* Tabela de Preços */
+
+.unimed__precos{
+    background-color: #dad5d5;
+}
+
+.unimed__precos h2{
+    text-align: center;
+    color: var(--verde-claro);
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 2.5rem;
+}
+
+.unimed__precos p{
+    text-align: center;
+}
+
+.unimed__precos-card{
+    background-color: var(--verde-claro);
+    border-radius: 5px;
+    padding: 40px;
+    border: 1px solid #000;
+}
+
+.unimed__precos-card p, .unimed__precos-card strong{
+    font-size: 18px;
+    padding: 5px 15px;
+    color: var(--branco);
+}
+
+.unimed__precos-card a{
+    background-color: var(--roxo);
+    padding: 5px 20px;
+    border-radius: 10px;
+    transition: all 0.25s ease-in-out;
+}
+
+.unimed__precos-card a:hover{
+    transform: scale(1.1);
+    transition: all 0.25s ease-in-out;
+}
+
+.unimed_precos-circle{
+    background-color: var(--branco);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+
+}
+
+/* End Tabela de Preços */
+
+/* Programas */
+
+.unimed__programas h2{
+    text-align: center;
+    color: var(--verde-padrao);
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 2.5rem;
+}
+
+.unimed__programas p strong{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--text-color-light);
+}
+
+.unimed__programas-card{
+    border-radius: 10px;
+    border: 1px solid #66666679;
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.25);
+}
+
+.unimed__programas-card img{
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+}
+
+.unimed__programas-card h3{
+    color: var(--verde-padrao);
+}
+
+.unimed__programas-card p{
+    margin: 15px 0 25px 0;
+}
+
+.unimed__programas-card a{
+    background-color: #00975c;
+    padding: 10px 10px;
+    border-radius: 5px;
+
+}
+
+.unimed__programas-card a:hover{
+    background-color: var(--roxo);
+    transition: all 0.2s ease-in-out;
+}
+
+/* end Programas */
+
+/* Diferenciais */
+.unimed__diferenciais-top h2{
+    color: var(--verde-padrao);
+    font-weight: 400;
+    font-size: 28px;
+    text-align: center;
+}
+
+.unimed__diferenciais img{
+    width: 100%;
+}
+
+.accordeon-item-name{
+    cursor: pointer;
+    transition: all 0.25s ease-in-out;
+}
+
+.accordeon-item-name-select{
+    background-color: var(--verde-claro);
+    border-radius: 10px 10px 0 0;
+    transition: all 0.25s ease-in-out;
+}
+
+.accordeon-item-name-select strong{
+    color: var(--branco);
+}
+
+.accordeon-item-name-select svg{
+    transform: rotate(-180deg);
+    transition: all 0.25s ease-in-out;
+}
+
+.accordeon-item-content{
+    transition: all 0.25s ease-in-out;
+}
+
+/* end Diferenciais */
+
+/* footer */
+
+footer{
+    background-color: var(--verde-padrao);
+}
+
+footer .footer-logo img{
+    width: 300px;
+}
+
+footer strong{
+    font-size: 20px;
+}
+
+footer .social_item{
+    background-color: var(--branco);
+    width: 30px;
+    height: 30px;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer .social_item:hover, footer .social_item:hover svg{
+    fill: var(--branco);
+    background-color: var(--verde-claro);
+    transition: all 0.15s ease-in-out;
+}
+
+footer .footer-copy{
+    background-color: #00C282 !important;
+    padding: 10px 20px;
+    width: 100%;
+}
+
+footer .footer-copy p, footer .footer-copy strong{
+    color: #212529;
+    text-align: center;
+    line-height: 1.5rem;
+    margin: 0;
+}
+
+/* end footer */
+
+/* Desktop */
+@media(min-width:700px){
+    /* navbar */
+    .navbar{
+        justify-content: space-around;
+    }
+
+    .navbar__mob-list{
+        display: none;
+    }
+
+    .navbar__desk-list{
+        display: flex;
+    }
+
+    .navbar__desk-list a, .navbar__desk-list p{
+        padding-right: 20px;
+        font-weight: 700;
+    }
+
+    .navbar__desk-list a:hover, .navbar__desk-list p:hover{
+        color: var(--verde-claro);
+    }
+    /* end navbar */
+
+    /* Header */
+    .header__space{
+        background-image: url(../img/bannerunimed1.webp);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 75% 75%;
+    }
+
+    .header__left-text p, .header__left-text h1{
+        justify-content: left;
+        text-align: left;
+    }
+
+    .header__form-style{
+        width: 80%;
+    }
+
+    .header__left-text{
+        padding: 0 40px 0 60px;
+        align-items: flex-start;
+        justify-content: center;
+        height: 100%;
+        width: 40%;
+    }
+
+    /* End Header */
+
+    /*  Planos  */
+    .unimed__publi h3{
+        font-size: 45px;
+    }
+    /*  End Planos  */
+
+    /* Preços */
+    .unimed__precos h2{
+        font-size: 30px;
+    }
+    /* end preços */
+
+    /* Programas */
+    .unimed__programas-cards{
+        width: 370px;
+    }
+
+    .unimed__programas-card-top p{
+        height: 160px;
+        padding-top: 10px;
+    }
+    .unimed__programas-card-bottom p{
+        height: 200px;
+        padding-top: 10px;
+    }
+
+    .unimed__programas-card h3{
+        height: 40px;
+    }
+
+
+    /* end Programas */
+
+    /* footer */
+    footer .footer-logo img{
+        width: 100%;
+    }
+
+    footer .footer-contact{
+        padding-top: 30px;
+    }
+    /* end footer */
+}
+
+/* cookie */
+
+.cookies-content {
+    z-index: 100;
+    position: fixed;
+    bottom: 6%;
+    left: 3%;
+ }
+
+ .content__msg span{
+    color: var(--text-color);
+    background-color: #faf7f7;
+ }
+ 
+ .content_cookie {
+    width: 360px;
+    height: 180px;
+    box-shadow: 0 0 10px #292929;
+    border-radius: 5px;
+    padding: 1.5em;
+    line-height: 26px;
+    background-color: #faf7f7;
+    font-size: 13px;
+    opacity: .8;
+ 
+ }
+ 
+ .content__msg a {
+    font-weight: bolder;
+    color: #009858;
+ }
+ 
+ .content__action {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ 
+ }
+ 
+ .content__button {
+    border-radius: 5px;
+    background-color: #009858;
+    padding: .4em;
+    margin-top: -0.3em;
+    font-weight: 600;
+    display: inline-block;
+    width: 150px;
+    text-align: center;
+    color: #fff;
+    font-family: 'MohrRoundedBold', 'Poppins', 'Arial Narrow', Arial, sans-serif;
+    cursor: pointer;
+    font-size: 17px;
+ }
+ 
+ .sumir {
+    display: none;
+ }
+ 
+ .content_img {
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+    align-items: center;
+    flex-direction: row;
+ }
+ 
+ .cookie-img {
+    align-self: flex-start;
+ }
+ 
+ #alturaimg {
+ height: 37px;
+     width: 37px;
+ }
+ 
+ @media screen and (max-width:590px) {
+    .cookies-content{
+       bottom: 18%;
+    }
+ 
+    .content_cookie {
+       width: 220px;
+       height: auto;
+       padding: .6em;
+       opacity: .8;
+       
+    }
+ 
+    .content_img {
+       flex-wrap: wrap;
+       gap: 0;
+       text-align: center;
+    }
+ 
+    .content__msg {
+       margin-top: -2px;
+    }
+ 
+    #alturaimg {
+       height: 50px !important;
+       width: 50px !important;
+    }
+    
+ 
+ }
+ 
+ /* cookie fim */
